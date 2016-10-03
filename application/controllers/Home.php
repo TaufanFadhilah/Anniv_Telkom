@@ -9,13 +9,13 @@ class home extends CI_Controller {
 	public function do_login(){
 		$user = mysql_real_escape_string($_POST['username']);
 		$pass = mysql_real_escape_string($_POST['password']);
-		$res = $this->mymodel->select_where('tb_operator',array(
+		$res = $this->mymodel->select_where('tb_staff',array(
 			'username' => $user,
 			'password' => md5($pass)));
 		if($res->num_rows() > 0){
-			echo "Mausk";
+			redirect(base_url().'index.php/admin');
 		}else{
-			echo "Fail";
+			redirect(base_url().'index.php/home/admin');
 		}
 	}
 }

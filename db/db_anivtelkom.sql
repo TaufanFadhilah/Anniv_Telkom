@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Inang: localhost
--- Waktu pembuatan: 03 Okt 2016 pada 09.03
+-- Waktu pembuatan: 03 Okt 2016 pada 14.05
 -- Versi Server: 5.5.25a
 -- Versi PHP: 5.4.4
 
@@ -19,6 +19,87 @@ SET time_zone = "+00:00";
 --
 -- Basis data: `db_anivtelkom`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_attend_confirmation`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_attend_confirmation` (
+  `id_attend_confirmation` varchar(5) NOT NULL,
+  `attend_confirmation` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_attend_confirmation`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_attend_confirmation`
+--
+
+INSERT INTO `tb_attend_confirmation` (`id_attend_confirmation`, `attend_confirmation`) VALUES
+('0', 'Belum Konfirmasi'),
+('1', 'Hadir'),
+('2', 'Tidak Hadir');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_participant`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_participant` (
+  `id_participant` varchar(8) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `company` varchar(50) NOT NULL,
+  `position` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `phone` varchar(13) NOT NULL,
+  `id_participant_type` varchar(5) NOT NULL,
+  `id_attend_confirmation` varchar(5) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_participant`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_participant`
+--
+
+INSERT INTO `tb_participant` (`id_participant`, `name`, `company`, `position`, `email`, `phone`, `id_participant_type`, `id_attend_confirmation`, `created_at`) VALUES
+('1', 'Taufan Fadhilah Iskandaraaaa', 'SMK Telkom Malang', '555', 'tfi231097@gmail.com', '87781884330', '1', '1', '2016-10-03 09:32:41');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_participant_type`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_participant_type` (
+  `id_participant_type` varchar(5) NOT NULL,
+  `participant_type` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_participant_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `tb_participant_type`
+--
+
+INSERT INTO `tb_participant_type` (`id_participant_type`, `participant_type`) VALUES
+('1', 'Mentri'),
+('2', 'Tamu');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_registration`
+--
+
+CREATE TABLE IF NOT EXISTS `tb_registration` (
+  `id_registration` varchar(8) NOT NULL,
+  `id_participant` varchar(8) NOT NULL,
+  `id_staff` varchar(8) NOT NULL,
+  `register_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_registration`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
