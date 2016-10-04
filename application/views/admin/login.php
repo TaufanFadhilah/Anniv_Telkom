@@ -1,45 +1,106 @@
-<!doctype html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if IE 9]>    <html class="no-js ie9" lang="en"> <![endif]-->
-<!--[if gt IE 9]><!--> <html> <!--<![endif]-->
-<head>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Anniv</title>
+    <title>Login | Registrasi 3rd Anniversary</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
-</head>
+    <!-- Bootstrap -->
+    <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="<?php echo base_url() ?>assets/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- NProgress -->
+    <link href="<?php echo base_url() ?>assets/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="<?php echo base_url() ?>assets/vendors/animate.css/animate.min.css" rel="stylesheet">
 
-	<body>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-offset-4 col-md-4">
-					<h1>Login</h1>
-					<form action="<?php echo base_url() ?>index.php/home/do_login" method="post">
-					<div class="form-group">
-					<label for="exampleInputEmail1">
-						Username
-					</label>
-					<input type="text" class="form-control" name="username" />
-				</div>
-				<div class="form-group">	 
-					<label for="exampleInputPassword1">
-						Password
-					</label>
-					<input type="password" class="form-control" name="password" />
-				</div>
-				<input type="submit" name="submit" class="btn btn-primary" value="Login">
-				</div>
-				</form>
-				<div class="col-md-4">
-					
-				</div>
-			</div>
-		</div>
+    <!-- Custom Theme Style -->
+    <link href="<?php echo base_url() ?>assets/build/css/custom.min.css" rel="stylesheet">
+  </head>
 
-	</body>
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+      <br/>
+      <h1 align="center"><!-- <i class="fa fa-paw"></i> 3rd Anniversarry --> </h1>
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+        <img src="<?php echo base_url() ?>assets/images/Logo.png" style="width: 100%;">
+          <section class="login_content">
+            <form action="<?php echo base_url() ?>index.php/home/do_login" method="post">
+              <h1>Login Form</h1>
+              <h4><?php echo $this->session->flashdata('login'); ?></h4>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" maxlength="10" name="username" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" name="password" />
+              </div>
+              <div>
+                <center><input type="submit" class="btn btn-default submit" name="submit" value="Log in"></center>
+                <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
+              </div>
+              </form>
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <!-- <p class="change_link">New to site?
+                  <a href="#signup" class="to_register"> Create Account </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br /> -->
+
+                <div>
+                  <!-- <h1><i class="fa fa-paw"></i> 3rd Anniversarry</h1> -->
+                  <p>©2016 All Rights Reserved. <!-- Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms --></p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>Create Account</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="index.html">Submit</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

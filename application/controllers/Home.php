@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class home extends CI_Controller {
+
+	public function index(){
+		$this-
+	}
 	public function admin(){
 		$this->load->view('admin/login');
 	}
@@ -12,11 +16,12 @@ class home extends CI_Controller {
 		$res = $this->mymodel->select_where('tb_staff',array(
 			'username' => $user,
 			'password' => md5($pass)));
+		$row = $res->row();
 		if($res->num_rows() > 0){
-			redirect(base_url().'index.php/admin');
-		}else{
-			redirect(base_url().'index.php/home/admin');
+			$array = array('id_staff' => $row->id_staff) ;
+			$this->session->set_userdata($array);
 		}
+		redirect(base_url().'index.php/admin');
 	}
 }
 ?>

@@ -13,12 +13,19 @@ class admin extends CI_Controller {
 	        }
 
 	public function index(){
-		$res = $this->mymodel->select('tb_participant');
+	$res = $this->mymodel->select('tb_participant');
 		$this->load->view('admin/dashboard',array(
+			'total_participant' => $res->num_rows()
+			));
+	}
+
+	public function list_participant(){
+		$res = $this->mymodel->select('tb_participant');
+		$this->load->view('admin/list_tamu',array(
 			'data' => $res->result_array()));
 	}
 
-	public function insert(){
+	public function insert_participant(){
 		$res1 = $this->mymodel->select('tb_attend_confirmation');
 		$res2 = $this->mymodel->select('tb_participant_type');
 		$this->load->view('admin/insert',array(
@@ -42,7 +49,7 @@ class admin extends CI_Controller {
 		
 		if($res1->num_rows() > 0){
 			$this->session->set_flashdata('insert','Insert Failed');
-			redirect(base_url().'index.php/admin/insert');
+			redirect(base_url().'index.php/admin/insert_participant');
 		}else{
 			$res = $this->mymodel->insert('tb_participant',array(
 			'id_participant' => $id_participant,
@@ -59,12 +66,12 @@ class admin extends CI_Controller {
 		}
 	}
 
-	public function edit($id){
+	public function edit_participant($id){
 		$res = $this->mymodel->select_where('tb_participant',"id_participant = $id");
 		$row = $res->row();
 		$res1 = $this->mymodel->select('tb_attend_confirmation');
 		$res2 = $this->mymodel->select('tb_participant_type');
-		$this->load->view('admin/edit',array(
+		$this->load->view('admin/edit_participant',array(
 			'title' => 'Edit Data',
 			'attend_confirmation' => $res1->result_array(),
 			'participant_type' => $res2->result_array(),
@@ -72,7 +79,7 @@ class admin extends CI_Controller {
 			'data' => $row));
 	}
 
-	public function do_edit(){
+	public function do_edit_participant(){
 		$id_participant = mysql_real_escape_string($_POST['id_participant']);
 		$name = mysql_real_escape_string($_POST['name']);
 		$company = mysql_real_escape_string($_POST['company']);
@@ -96,9 +103,14 @@ class admin extends CI_Controller {
 	}
 
 	public function delete($id){
-		$res = $this->mymodel->delete('tb_participant',"id_participant = $id");
+		$res = $this->mymodel->delete('tb_participant',array('id_participant' => $id));
 		$this->session->set_flashdata('list','Delete Success');
-		redirect(base_url().'index.php/admin/');
+		redirect(base_url().'index.php/admin/list_participant');
+	}
+
+	public function logout(){
+		$this->session->sess_destroy();
+		redirect(base_url().'index.php/home/admin');
 	}
 
 }
