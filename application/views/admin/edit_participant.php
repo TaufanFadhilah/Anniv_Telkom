@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Edit Tamu | Registrasi 3rd Anniversary</title>
+    <title>Edit Guest | 3rd Anniversary Telkom University</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -129,9 +129,12 @@
                         <div class="col-md-6 col-md-offset-3">
                           <input type="submit" value="Edit" class="btn btn-warning" name="">
                           </form>
-                          <button class="btn btn-primary">Subtitute</button>
-                          <form method="post" action="<?php echo base_url().'index.php/admin/delete/'.$randNum ?>">
-                            <input type="submit" name="" class="btn btn-danger" value="Delete"></form>
+                          <form method="post" action="<?php echo base_url().'index.php/admin/subtitute_participant/'.$randNum?>" style="float: left;">
+                            <input type="submit" name="" class="btn btn-primary" value="Subtitute">
+                          </form>
+                          <form method="post" action="<?php echo base_url().'index.php/admin/delete_participant/'.$randNum ?>" style="float: left;">
+                            <input type="submit" name="" class="btn btn-danger" value="Delete">
+                          </form>
                         </div>
                       </div>
                     
@@ -144,12 +147,12 @@
         <!-- /page content -->
 
         <!-- footer content -->
-        <footer>
+       <!--  <footer>
           <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
           </div>
           <div class="clearfix"></div>
-        </footer>
+        </footer> -->
         <!-- /footer content -->
       </div>
     </div>

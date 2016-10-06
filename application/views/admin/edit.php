@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-    <title>Anniv</title>
+    <title>Edit Guest | 3rd Anniversary Telkom University</title>
 
     <!-- Bootstrap core CSS -->
     <link href="<?php echo base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">

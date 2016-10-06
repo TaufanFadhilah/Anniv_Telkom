@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Input Tamu | Registrasi 3rd Anniversary</title>
+    <title>Input Registration | 3rd Anniversary Telkom University</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,94 +43,58 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><?php echo $title ?> <small><?php echo $this->session->flashdata('insert'); ?></small></h2>
-
+                    <!-- <h2><?php echo $title ?> <small><?php echo $this->session->flashdata('insert'); ?></small></h2> -->
+                    <h2>Input Registration</h2>
                     <ul class="nav navbar-right panel_toolbox">
                     </ul>
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-
-                    <form class="form-horizontal form-label-left" method="post" action="<?php echo base_url() ?>index.php/admin/do_insert">
-                     <!--  <p>For alternative validation library <code>parsleyJS</code> check out in the <a href="form.html">form page</a>
-                      </p>
-                      <span class="section">Personal Info</span> -->
+                  
+                  <a href="<?php echo base_url().'index.php/admin/subtitute_participant/'?>">
+                    <button class="btn btn-primary" style="float: right;"> Subtitute</button>
+                  </a>     
+                    <form class="form-horizontal form-label-left" method="post"  action="<?php echo base_url() ?>index.php/admin/input_registration" >
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">ID <span class="required">*</span>
-                        </label>
+                        <h2 class="control-label col-md-3 col-sm-3 col-xs-12" for="id">ID <span class="required">:</span></h2>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" value="<?php echo $randNum ?>" disabled>
-                          <input type="hidden" name="id_participant" class="form-control" value="<?php echo $randNum ?>">
+                          <input id="id" class="form-control col-md-7 col-xs-12" autofocus=""  style="float: left;" name="id">
                         </div>
                       </div>
+                      </form>
+                      <?php echo $this->session->flashdata('input_registration'); ?>
+                      <?php if(isset($name)){ ?>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name <span class="required">*</span>
-                        </label>
+                        <h3 class="control-label col-md-3 col-sm-3 col-xs-12">Name <span class="required"> : </span></h3>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="name" class="form-control col-md-7 col-xs-12" name="name" placeholder="Full Name" required="required" type="text">
-                        </div>
-                      </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="email" name="email" required="required" class="form-control col-md-7 col-xs-12" placeholder="Email">
-                        </div>
-                      </div>
-                      
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="position">Position <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="position" name="position" required="required" data-validate-minmax="11,12" maxlength="12" class="form-control col-md-7 col-xs-12" placeholder="Position">
-                        </div>
-                      </div>
-                      
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="company">Company <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="company" type="text" name="company" required="required" data-validate-length-range="5,20" class="form-control col-md-7 col-xs-12" placeholder="Company Name">
-                        </div>
-                      </div>
-                      
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Phone Number <span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="telephone" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12" placeholder="Phone Number">
-                        </div>
-                      </div>
-                     
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="participant">Participant Type<span class="required">*</span>
-                        </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select id="participant" name="participant_type" required="required" class="form-control col-md-7 col-xs-12">
-                            <?php foreach ($participant_type as $row) { ?>
-                  <option value="<?php echo $row['id_participant_type'] ?>"><?php echo $row['participant_type'] ?></option>
-                <?php } ?>
-                          </select>
+                          <h3 class="control-label col-md-3 col-sm-3 col-xs-12" style="text-align: left;"><?php echo $name ?> <span class="required"></span></h3>
                         </div>
                       </div>
 
+
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="confirmation">Confirmation <span class="required">*</span>
-                        </label>
+                        <h3 class="control-label col-md-3 col-sm-3 col-xs-12">Company <span class="required">:</span></h3>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select id="confirm" name="attend_confirmation" required="required" class="form-control col-md-7 col-xs-12">
-                            <?php foreach ($attend_confirmation as $row) { ?>
-                  <option value="<?php echo $row['id_attend_confirmation'] ?>"><?php echo $row['attend_confirmation'] ?></option>
-                <?php } ?>
-                          </select>
+                          <h3 class="control-label col-md-3 col-sm-3 col-xs-12" style="text-align: left;"><?php echo $company ?> <span class="required"></span></h3>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                          <button type="submit" class="btn btn-success"> Submit</button>
+
+
+                      <div class="item form-group">
+                        <h3 class="control-label col-md-3 col-sm-3 col-xs-12">Position <span class="required">:</span></h3>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <h3 class="control-label col-md-3 col-sm-3 col-xs-12" style="text-align: left;"><?php echo $position ?> <span class="required"></span></h3>
                         </div>
                       </div>
-                    </form>
+
+
+                      <div class="item form-group">
+                        <h3 class="control-label col-md-3 col-sm-3 col-xs-12">Type <span class="required">:</span></h3>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <h3 class="control-label col-md-3 col-sm-3 col-xs-12" style="text-align: left;"><?php echo $type ?> <span class="required"></span></h3>
+                        </div>
+                      </div>
+                      <?php } ?>
                   </div>
                 </div>
               </div>

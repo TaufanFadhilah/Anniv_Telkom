@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Registrasi 3rd Anniversary</title>
+    <title>3rd Anniversary Telkom University</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -44,8 +44,16 @@
 
           <!-- top tiles -->
           <div class="row tile_count">
-            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count" style="margin: 10% 40%;">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
                 <span class="count_top"><i class="fa fa-user"></i> Total Participants</span>
+              <div class="count"><?php echo $total_participant ?></div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-check"></i> Presence Participants</span>
+              <div class="count"><?php echo $total_participant ?></div>
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+                <span class="count_top"><i class="fa fa-times"></i> Unpresence Participant</span>
               <div class="count"><?php echo $total_participant ?></div>
             </div>
           </div>
@@ -58,9 +66,9 @@
 
         <!-- footer content -->
         <footer>
-          <div class="pull-right">
+         <!--  <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-          </div>
+          </div> -->
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->

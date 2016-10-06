@@ -12,7 +12,7 @@
               </div>
               <div class="profile_info">
                 <span>Welcome,</span>
-                <h2>Dummy</h2>
+                <h2><?php echo $this->session->userdata('id_staff'); ?></h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -24,16 +24,20 @@
               <div class="menu_section">
                 <h3>Operator</h3>
                 <ul class="nav side-menu">
-                  <li><a href="dashboard.html"><i class="fa fa-home"></i> Home </a>
-                   
-                  </li>
+                  <li><a href="<?php echo base_url() ?>index.php/admin"><i class="fa fa-home"></i> Home </a></li>
                   <li><a><i class="fa fa-edit"></i> Data <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                     
-                      <li><a href="<?php echo base_url() ?>index.php/admin/insert_participant">Input Tamu</a></li>
-                      <li><a href="<?php echo base_url() ?>index.php/admin/list_participant">Daftar Tamu</a></li>
+                      <li><a href="<?php echo base_url() ?>index.php/admin/list_participant">Guest List</a></li>
+                      <li><a href="<?php echo base_url() ?>index.php/admin/insert_participant">Input Guest</a></li>
+                      <li><a href="<?php echo base_url() ?>index.php/admin/guest_page">Guest Page</a></li>
                     </ul>
                   </li>
+                  <li><a><i class="fa fa-desktop"></i> Registration <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="<?php echo base_url() ?>index.php/admin/registration_list">Registration List</a></li>
+                      <li><a href="<?php echo base_url() ?>index.php/admin/input_registration">Input Registration</a></li>
+                    </ul>
+                  </li> 
                 </ul>
               </div>
             </div>

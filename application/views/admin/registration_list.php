@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>List Tamu | Registrasi 3rd Anniversary</title>
+    <title>Registration List | 3rd Anniversary Telkom University</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url() ?>assets/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -47,19 +47,8 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Guest List <small><?php echo $this->session->flashdata('list'); ?></small></h3>
+                <h3>Registration List <small><?php echo $this->session->flashdata('list'); ?></small></h3>
               </div>
-
-              <!-- <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div> -->
             </div>
 
             <div class="clearfix"></div>
@@ -70,9 +59,6 @@
                 <div class="x_panel">
                   
                   <div class="x_content">
-                    <!-- <p class="text-muted font-13 m-b-30">
-                      Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
-                    </p> -->
                     <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead align="center">
                         <tr>
@@ -91,10 +77,10 @@
                             <td><?php echo $row['name'] ?></td>
                             <td><?php echo $row['position'] ?></td>
                             <td><?php echo $row['company'] ?></td>
-                            <td><?php echo $row['id_participant_type'] ?></td>
-                            <td><a href="<?php echo base_url().'index.php/admin/edit_participant/'.$row['id_participant'] ?>"><button class="btn btn-primary">Detail</button></a></td>
+                            <td><?php echo $row['id_participant_type'] ?></td> 
+                            <td><a href="<?php echo base_url().'index.php/admin/delete_registration/'.$row['id_participant'] ?>"><button class="btn btn-danger">Delete</button></a></td>
                           </tr>
-                        <?php $no++;} ?>
+                       <?php $no++;} ?>
                       </tbody>
                     </table>
 
